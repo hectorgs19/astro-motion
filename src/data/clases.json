@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "day": "Lunes",
+    "startHour": 9,
+    "duration": 2,
+    "level": "Principiante",
+    "participants": ["Ana", "Luis", "Carlos", "Marta", "Elena", "Pedro"]
+  },
+  {
+    "id": "2",
+    "day": "Lunes",
+    "startHour": 14,
+    "duration": 1,
+    "level": "Intermedio",
+    "participants": ["Julia", "Roberto", "Laura", "Sergio", "Inés"]
+  },
+  {
+    "id": "3",
+    "day": "Martes",
+    "startHour": 11,
+    "duration": 1.5,
+    "level": "Avanzado",
+    "participants": ["María", "José", "Lucía", "Javier", "Pablo", "Sandra", "Andrés", "Beatriz"]
+  }
+]
