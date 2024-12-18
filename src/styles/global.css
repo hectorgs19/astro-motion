@@ -1,0 +1,22 @@
+.hour-cell {
+    height: 4rem; /* Cada hora tiene una altura fija */
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .half-hour {
+    height: 2rem; /* Media hora */
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .header-cell {
+    height: 4rem;
+  }
+
+  .event-card {
+    background-color: #3b82f6; /* Color de fondo para las tarjetas de eventos */
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 10;
+  }

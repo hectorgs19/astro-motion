@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import { clases } from '../data/eventData';
+
+const hours = Array.from({ length: 16 }, (_, i) => i + 7); // horas de 7:00 a 22:00
+const days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+// Función para asignar colores según el nivel
+const getLevelColor = (level: string) => {
+  switch (level) {
+    case "Principiante":
+      return "bg-blue-500";
+    case "Intermedio":
+      return "bg-yellow-500";
+    case "Avanzado":
+      return "bg-red-500";
+    default:
+      return "bg-gray-300";
+  }
+};
+---
+
+<div class="flex w-full h-screen bg-gray-50">
+  <!-- Columna de horas -->
+  <div class="w-16 bg-white border-r border-gray-300">
+    <div class="header-cell"></div> <!-- Celda vacía -->
+    {hours.map((hour) => (
+      <div>
+        <div class="hour-cell flex items-center justify-center text-sm text-gray-500">
+          {hour.toString().padStart(2, "0")}:00
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Calendario semanal -->
+  <div class="flex-1">
+    <!-- Encabezado de días -->
+    <div class="grid grid-cols-7 border-b border-gray-300">
+      {days.map((day) => (
+        <div class="header-cell flex items-center justify-center font-semibold border-r border-gray-300">
+          {day}
+        </div>
+      ))}
+    </div>
+
+    <!-- Contenido del calendario -->
+    <div class="grid grid-cols-7 relative">
+      {days.map((day) => (
+        <div class="border-r border-gray-300 relative">
+          {hours.map(() => (
+            <div>
+              <div class="half-hour border-b border-gray-200"></div>
+              <div class="half-hour border-b border-gray-200"></div>
+            </div>
+          ))}
+          <!-- Clases -->
+          {clases
+            .filter((clase) => clase.day === day)
+            .map((clase) => (
+              <div
+                class={`absolute left-1 right-1 m-1 p-2 text-white rounded shadow-md ${getLevelColor(clase.level)}`}
+                style={{
+                  top: `${(clase.startHour - 7) * 4}rem`,
+                  height: `${clase.duration * 4}rem`,
+                }}
+              >
+                <div class="text-sm font-bold">{clase.level}</div>
+                <div class="text-xs">Participantes: {clase.participants} / 8</div>
+              </div>
+            ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

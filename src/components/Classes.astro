@@ -1,0 +1,15 @@
+---
+export interface Props {
+  title: string; // Título del evento
+  startTime: string; // Hora de inicio
+  duration: number; // Duración en horas
+  color?: string; // Color opcional
+}
+
+const { title, startTime, duration, color = "bg-blue-500" } = Astro.props;
+---
+
+<div class={`relative p-2 text-white text-sm rounded shadow-md ${color}`} style={`height: ${duration * 4}rem;`} >
+  <div class="font-bold">{title}</div>
+  <div class="text-xs">Start: {startTime}</div>
+</div>
